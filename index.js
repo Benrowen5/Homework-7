@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-// Questions array that will be prompted using inquirer, and used to build the README
+// function to call inquirer and prompt user for input to be used to build the README
 const questionPrompts = () => {
     return inquirer.prompt([
         {
@@ -72,6 +72,13 @@ const questionPrompts = () => {
             type: 'input',
             name: 'email',
             message: 'Please provide your email address:',
+            validate: emailInput => {
+                if(emailInput) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
         },
     ])
 };
