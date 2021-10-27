@@ -52,6 +52,9 @@ function generateMarkdown(data) {
   
   ## Description
   ${data.description}
+
+  * [Demonstration Video](https://watch.screencastify.com/v/SEr8CtmX2IzoylK41y36)
+  
   ***************************************************************
   ## Table of Contents
 * [Installation](#installation)
