@@ -31,6 +31,23 @@ const questionPrompts = () => {
             }
         },
         {
+            type: 'confirm',
+            name: 'demoConfirm',
+            message: 'Do you want to include a link to a video demonstration?',
+        },
+        {
+            type: 'input',
+            name: 'videoLink',
+            message: 'Please provide the link to your demonstration video:',
+            when: ({demoConfirm}) => {
+                if (demoConfirm) {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+        },
+        {
             type: 'input',
             name: 'install',
             message: 'What are the steps required to install your project?',
@@ -85,7 +102,7 @@ const questionPrompts = () => {
 
 // Function to write README file
 const writeToFile = (readMeData) => {
-    fs.writeFile('./README.md', generateMarkdown(readMeData), function(err) {
+    fs.writeFile('./NewREADME.md', generateMarkdown(readMeData), function(err) {
         if (err) {
         return console.log(err)
         }
